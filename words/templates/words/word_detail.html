@@ -4,6 +4,10 @@
 {% block content %}
 <div class='container'>
     <h1>{{word.word}}</h1>
+    <form action='{% url "words_definition_create" word.pk %}' method='post'>{% csrf_token %}
+          {{ form.as_p }}
+        <button type='submit'>Add Definition</button>
+    </form>
 </div>
 
 {% endblock %}

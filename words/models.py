@@ -27,3 +27,21 @@ class Word(models.Model):
 
     def get_absolute_url(self):
         return reverse('words_word_detail', kwargs={'pk':self.pk})
+
+
+
+class Definition(models.Model):
+    definition = models.TextField()
+    word = models.ForeignKey(Word, on_delete=models.CASCADE)
+    votes = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+
+    def __str__(self):
+        return "{} - {}".format(self.word, self.definition)
+
+
+    class Meta:
+        verbose_name = 'definition'
+        ordering = ['votes']
