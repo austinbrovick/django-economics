@@ -44,4 +44,18 @@ class Definition(models.Model):
 
     class Meta:
         verbose_name = 'definition'
-        ordering = ['votes']
+        ordering = ['-votes']
+
+
+    def get_word_url(self):
+        word = self.word
+        return word.get_absolute_url()
+
+
+    def check_votes(self):
+        if self.votes < -3:
+            self.delete()
+
+
+
+

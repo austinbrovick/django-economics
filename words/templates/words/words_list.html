@@ -4,10 +4,15 @@
 {% block content %}
 <div class='container'>
     <h1>Vocabulary</h1>
-    <a href='{% url "words_word_create" %}'>Add To Vocab</a>
-    <ul>
-        {% for word in words %}
-            <li><a href='{{ word.get_absolute_url }}'>{{ word.word }}</a></li>
+    <form action='{% url "words_word_create" %}'>{% csrf_token %}
+        <button type='submit' class="btn btn-default btn-lg">Add To Vocab</button>
+    </form>
+
+
+    <!-- <a href='{% url "words_word_create" %}'>Add To Vocab</a> -->
+    <ul class='list-group'>
+        {% for idx in words %}
+            <li class="list-group-item"><a href='{{ idx.word.get_absolute_url }}'>{{ idx.word.word }}</a> <span class="badge">{{ idx.defs }}</span></li>
         {% endfor %}
     </ul>
 </div>
