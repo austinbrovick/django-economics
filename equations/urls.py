@@ -1,7 +1,7 @@
 from django.conf.urls import url
 
-from .views import word_list
+from .views import equation_list
 
 urlpatterns = [
-    url(r'^$', word_list, name='equations_list'),
+    url(r'^$', equation_list, name='equations_list'),
 ]

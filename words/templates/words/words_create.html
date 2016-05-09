@@ -1,0 +1,13 @@
+{% extends parent_template|default:"words/words_base.html" %}
+
+{% block content %}
+<div class='container'>
+    <h1>Add To Vocab</h1>
+    <form method='post' action='{% url "words_word_create" %}'>{% csrf_token %}
+    {{ form.as_p }}
+        <button type='submit'>Add Word</button>
+    </form>
+
+    <p>You will add a definiton for this word after creating the word</p>
+</div>
+{% endblock %}

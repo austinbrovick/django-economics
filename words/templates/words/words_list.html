@@ -1,0 +1,15 @@
+{% extends parent_template|default:"words/words_base.html" %}
+
+
+{% block content %}
+<div class='container'>
+    <h1>Vocabulary</h1>
+    <a href='{% url "words_word_create" %}'>Add To Vocab</a>
+    <ul>
+        {% for word in words %}
+            <li><a href='{{ word.get_absolute_url }}'>{{ word.word }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

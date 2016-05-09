@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # my apps
     'equations',
     'home',
+    'words',
 ]
 
 MIDDLEWARE_CLASSES = [
