@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^home/', include('home.urls')),
     url(r'^equations/', include('equations.urls')),
     url(r'^vocab/', include('words.urls')),
+    url(r'^search/', include('search.urls')),
 ]
