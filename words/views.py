@@ -70,3 +70,31 @@ class DefinitionUpVote(View):
         definition.save()
         return redirect(definition.get_word_url())
 
+def words_micro(request):
+    all_words = Word.objects.filter(econ='microeconomics')
+    words_with_dict = {}
+    words = []
+    for word in all_words:
+        print(word.definition_set.count())
+        words.append({'word':word, 'defs': word.definition_set.count()})
+    return render(request, 'words/micro_list.html', {'words': words})
+
+def words_macro(request):
+    all_words = Word.objects.filter(econ='macroeconomics')
+    words_with_dict = {}
+    words = []
+    for word in all_words:
+        print(word.definition_set.count())
+        words.append({'word':word, 'defs': word.definition_set.count()})
+    return render(request, 'words/macro_list.html', {'words': words})
+
+
+def words_both(request):
+    all_words = Word.objects.filter(econ='both')
+    words_with_dict = {}
+    words = []
+    for word in all_words:
+        print(word.definition_set.count())
+        words.append({'word':word, 'defs': word.definition_set.count()})
+    return render(request, 'words/both_list.html', {'words': words})
+

@@ -4,8 +4,8 @@
 {% block content %}
 <div class='container'>
     <div class='row'>
-        <div class='col-md-2'>
-            <h1>Vocabulary</h1>
+        <div class='col-md-12'>
+            <h2>Vocabulary Associated with Both Micro and Macro</h2>
         </div>
     </div>
     <div class='row'>
@@ -19,7 +19,7 @@
         <div class='col-md-5'>
             <div class='btn-group' role='group'>
                 <a href='{% url "words_list" %}'>
-                    <button type="button" class="btn btn-default active">All</button>
+                    <button type="button" class="btn btn-default">All</button>
                 </a>
                 <a href='{% url "words_micro" %}'>
                     <button type="button" class="btn btn-default">Microeconomics</button>
@@ -28,7 +28,7 @@
                     <button type="button" class="btn btn-default">Macroeconomics</button>
                 </a>
                 <a href='{% url "words_both" %}'>
-                    <button type="button" class="btn btn-default">Both</button>
+                    <button type="button" class="btn btn-default active">Both</button>
                 </a>
             </div>
         </div>
