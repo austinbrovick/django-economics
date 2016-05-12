@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'equations',
     'home',
     'words',
+    'search',
+    'comments',
 ]
 
 MIDDLEWARE_CLASSES = [
