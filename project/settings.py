@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'home',
     'words',
     'search',
+    'comments',
 ]
 
 MIDDLEWARE_CLASSES = [
