@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
 from django.http import HttpResponse
-from .forms import WordForm, DefinitionForm
-from .models import Word, Definition
+from .models import Word
 
 
 def word_list(request):
@@ -11,7 +10,7 @@ def word_list(request):
 
 class WordCreate(View):
     template_name = 'words/words_create.html'
-    form = WordForm
+    # form = WordForm
 
 
     def get(self, request):
@@ -28,22 +27,23 @@ class WordCreate(View):
 
 def word_detail(request, pk):
     word = Word.objects.get(pk=pk)
-    return render(request, 'words/word_detail.html', {'word':word, 'form':DefinitionForm()})
+    return render(request, 'words/word_detail.html', {'word':word})
 
 
 class DefinitionCreate(View):
-    form = DefinitionForm
+    # form = DefinitionForm
     def get(self, request, pk):
         pass
 
     def post(self, request, pk):
-        definition = self.form(request.POST)
-        if definition.is_valid():
-            word = Word.objects.get(pk=pk)
-            instance = definition.save(commit=False)
-            instance.word = word
-            instance.save()
-        return redirect(word.get_absolute_url())
+        pass
+        # definition = self.form(request.POST)
+        # if definition.is_valid():
+        #     word = Word.objects.get(pk=pk)
+        #     instance = definition.save(commit=False)
+        #     instance.word = word
+        #     instance.save()
+        # return redirect(word.get_absolute_url())
 
 
 
